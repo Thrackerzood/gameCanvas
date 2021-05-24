@@ -1,3 +1,16 @@
+let input = document.querySelector('.input-name')
+let button = document.querySelector('.button-start')
+let canvas = false
+
+input.addEventListener('keyup', ()=>{
+   if(input.value != 0){
+      canvas = true
+      button.removeAttribute('disabled')
+   }else{
+      canvas = false
+   }
+})
+
 window.addEventListener('keydown',(e)=>{
    obj = {
       'Enter': start, 
@@ -16,7 +29,6 @@ window.addEventListener('keydown',(e)=>{
       obj?.(e.key)  
    }
 })
-let canvas = true
 let iteration = false
 let timer = 0
 let mm = 0
@@ -24,8 +36,8 @@ let ss = 0
 class Start {
    static canvas = document.createElement("canvas")
    static start = () => {
-      document.querySelector('.button-start').remove()
-      document.querySelector('.input-name').remove()
+      button.remove()
+      input.remove()
       this.canvas.height = 600
       this.canvas.width = 800
       this.ctx = this.canvas.getContext('2d')
