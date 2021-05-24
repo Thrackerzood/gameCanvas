@@ -1,0 +1,9 @@
+*{margin: 0;padding: 0;}
+body{display: flex;justify-content: center;align-items: center;height: 100vh;width: 100vw;background: rgb(0, 150, 100);}
+button{padding: 10px 35px;color: rgb(3, 82, 0);background: rgb(240, 255, 103);outline: none;border: none;transition: .25s;font-family: 'Padauk', sans-serif;border-radius: 10px;font-size: 18px;
+   box-shadow: 0px 5px 8px 2px rgba(34, 60, 80, 0.2);
+}
+button:hover{padding: 10px 55px;background: rgb(236, 255, 60);outline: none;border: 3px rgb(161, 161, 161) solid;border: none;
+   box-shadow: 5px 5px 6px -1px rgba(34, 60, 80, 0.6) inset;
+}
+canvas{border: solid rgb(65, 88, 0);background: rgb(193, 255, 193);}
