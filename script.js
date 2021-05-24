@@ -19,32 +19,49 @@ window.addEventListener('keydown',(e)=>{
 let canvas = true
 let iteration = false
 let timer = 0
+let mm = 0
+let ss = 0
 class Start {
    static canvas = document.createElement("canvas")
-   static start = ()=>{
-      
+   static start = () => {
       document.querySelector('.button-start').remove()
+      document.querySelector('.input-name').remove()
       this.canvas.height = 600
       this.canvas.width = 800
-      this.context = this.canvas.getContext('2d')
+      this.ctx = this.canvas.getContext('2d')
       document.body.insertBefore(this.canvas, document.body.childNodes[0])
-      timerStart()
-  } 
-}
-function timerStart(){
-  if(iteration == false){
-      timerStop =  setInterval(()=>{
-      timer += 1
-      counters = true
-      console.log(timer)
-  }, 1000)
+      this.timerStart()
   }
-
+  static timerStart = () =>{
+     timerStart(this.ctx)
+  }
+}
+function timerStart(ctx){
+  if(iteration == false){
+         timerStop =  setInterval(()=>{
+         timer += 1
+         counters = true
+         fillTimer(ctx)
+      }, 1000)
+  }
+}
+function fillTimer(ctx){
+   if(timer >= 60){
+      mm +=1
+      ss = 0
+      timer = 0
+      ctx.clearRect(770, 10, 100, 20)
+      ctx.fillText(mm + ' : ' + ss, 770, 20)
+   }else{
+      ss += 1
+      ctx.clearRect(770, 10, 100, 20)
+      ctx.fillText(mm + ' : ' + ss, 770, 20)
+   }
 }
 function escape(){
-   if(counters ==false){
+   if(counters == false){
       counters = true
-      timerStart()
+      Start.timerStart()
       console.log('game start')
    }else{
       counters = false
